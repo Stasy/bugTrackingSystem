@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" href="../Styles/mainStyles.css" rel="stylesheet">
+    <link type="text/css" href="../Styles/headerStyles.css" rel="stylesheet">
+    <link type="text/css" href="../Styles/editProjectPageStyles.css" rel="stylesheet">
+    <title>RoboBug</title>
+</head>
+<body>
+<div class="headerWrapper">
+    <div class="topLine"></div>
+    <div class="globalHeader">
+        <div class="globalHeaderLeft">
+            <span id="projectName" class="simpleBlackText">projectName</span>
+            <a id="changeProjectLink" class="simpleBlackText" href="">Сменить</a>
+        </div>
+        <div class="globalHeaderRight">
+            <span id="userName" class="simpleBlackText">userName</span>
+            <a id="logoutLink" class="simpleBlackText" href="">Сменить</a>
+        </div>
+    </div>
+</div>
+
+<div Class="bodyWrapper">
+    <div id="logo"></div>
+    <div id="systemNameWrapper">
+        <p id="systemNameText"><span class="header">RoboBug</span></br><span class="text">Bug tracking system</span></p>
+    </div>
+    <div id="searchRowWrapper">
+        <input type="search" placeholder="Введите текст для поиска" class="blueInput simpleBlackText" id="searchRow">
+        <input type="button" value="Искать" class="blueButton simpleWhiteText">
+    </div>
+
+    <div class="editPageWrapper">
+        <input type="text" id="projectCaption" placeholder="Имя проекта: " class="simpleBlackText greenInput">
+        <div class="projectInformationWrapper">
+            <p id="projectPropertiesHint" class="simpleGrayText">Введите имена пользователей, которые имеют право
+            доступа для работы в данном проекте, через пробел в окно ниже. Например: user1 user2</p>
+            <textarea id="projectBody" class="simpleBlackText grayTextBox"></textarea>
+
+            <div class="commentAndSaveWrapper">
+                <textarea type="text" id="projectComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox"></textarea>
+                <input type="button" id="SaveButton" class="greenButton simpleWhiteText" value="Сохранить">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footerWrapper"></div>
+</body>
+</html>

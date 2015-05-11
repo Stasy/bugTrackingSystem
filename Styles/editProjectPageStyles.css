@@ -1,0 +1,32 @@
+#projectCaption{
+    width: 830px;
+}
+
+.projectInformationWrapper{
+    display: block;
+    padding-top: 40px;
+}
+
+#projectBody{
+    height: 105px;
+    width: 830px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+#projectPropertiesHint{
+    font-size: 12px;
+    padding: 0 0 5px 10px;
+}
+
+#projectComment{
+    height: 35px;
+    min-width: 600px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+#SaveButton{
+    width: 160px;
+    margin: 8px 0 0 38px;
+}
