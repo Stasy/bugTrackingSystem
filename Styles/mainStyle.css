@@ -19,6 +19,12 @@ body{
     margin: 0 7px 0 7px;
 }
 
+.simpleWhiteText{
+    color: white;
+    font-size: 16px;
+    margin: 0 7px 0 7px;
+}
+
 .miniGrayText{
     color: #7E7E7F;
     font-size: 12px;
@@ -36,7 +42,7 @@ body{
     margin: 30px 0 0 15%;
 }
 
-#systemNameBlock {
+#systemNameWrapper {
     display: inline-block;
     vertical-align: top;
 }
@@ -45,12 +51,37 @@ body{
     margin-top: -3px;
 }
 
-#systemNameBlock .header{
+#systemNameWrapper .header{
     font-size: 26px;
     color: black;
 }
 
-#systemNameBlock .text{
+#systemNameWrapper .text{
     font-size: 12px;
     color: #7E7E7F;
+}
+
+#searchRowWrapper{
+    display: inline-block;
+    vertical-align: top;
+    padding: 12px 0 0 10px;
+}
+
+#searchRow{
+    width: 630px;
+}
+
+.blueInput {
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #00a1e7;
+    padding: 0 15px 0 15px;
+    placeholdear: #7E7E7F 16px;
+}
+
+.blueButton{
+    height: 30px;
+    border: 1px solid #6582c6;
+    background-color: #7091bd;
+    padding: 0 20px 0 20px;
 }
