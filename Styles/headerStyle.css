@@ -1,0 +1,21 @@
+.topLine{
+    background-color: #00A1E7;
+    height: 12px;
+}
+
+.globalHeader{
+    background-color: #1CBAFE;
+    height: 42px;
+}
+
+.globalHeaderLeft{
+    margin-left: 15%;
+    padding-top: 17px;
+    display: inline-block;
+}
+
+.globalHeaderRight{
+    margin-left: 750px;
+    padding-top: 17px;
+    display: inline-block;
+}

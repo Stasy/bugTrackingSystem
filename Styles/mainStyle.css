@@ -1,0 +1,56 @@
+html{
+    font-family: Arial;
+}
+
+body{
+    margin: auto;
+}
+
+.simpleBlackText{
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 0 7px 0 7px;
+}
+
+.simpleGrayText{
+    color: #7E7E7F;
+    font-size: 16px;
+    margin: 0 7px 0 7px;
+}
+
+.miniGrayText{
+    color: #7E7E7F;
+    font-size: 12px;
+}
+
+#logo{
+    background: url("../img/logo.png");
+    height: 47px;
+    width: 60px;
+    margin: 0 7px 0 7px;
+    display: inline-block;
+}
+
+.bodyWrapper{
+    margin: 30px 0 0 15%;
+}
+
+#systemNameBlock {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#systemNameText{
+    margin-top: -3px;
+}
+
+#systemNameBlock .header{
+    font-size: 26px;
+    color: black;
+}
+
+#systemNameBlock .text{
+    font-size: 12px;
+    color: #7E7E7F;
+}
