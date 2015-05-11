@@ -4,6 +4,7 @@ html{
 
 body{
     margin: auto;
+    min-width: 1300px;
 }
 
 .simpleBlackText{
@@ -22,7 +23,6 @@ body{
 .simpleWhiteText{
     color: white;
     font-size: 16px;
-    margin: 0 7px 0 7px;
 }
 
 .miniGrayText{
@@ -79,9 +79,61 @@ body{
     placeholdear: #7E7E7F 16px;
 }
 
+input{
+    margin:0;
+}
+
+input:focus{
+    outline: none;
+}
+
 .blueButton{
     height: 30px;
     border: 1px solid #6582c6;
     background-color: #7091bd;
     padding: 0 20px 0 20px;
+    text-align: center;
+}
+
+.greenButton{
+    height: 30px;
+    border: 1px solid #07ca6f;
+    background-color: #24f692;
+    padding: 0 8px 0 8px;
+    text-align: center;
+}
+
+.darkGreenButton{
+    height: 30px;
+    border: 1px solid #059b54;
+    background-color: #07ca6f;
+    padding: 0 8px 0 8px;
+    text-align: center;
+}
+
+#createIssueButton{
+    width: 180px;
+}
+
+.filterWrapper{
+    display: block;
+    margin-top: 30px;
+}
+
+.issuesListWrapper{
+    display: block;
+    margin-top: 30px;
+    min-height: 200px;
+}
+
+.pagingWrapper{
+    display: block;
+    margin-top: 30px;
+}
+
+#statusFilterOpen{
+    margin: 0 0 0 352px;
+}
+#statusFilterVerified{
+    margin: 0 20px 0 0;
 }

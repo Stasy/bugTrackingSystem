@@ -1,0 +1,51 @@
+tr{
+    height: 40px;
+    border: #00a1e7 1px solid;
+}
+
+td{
+    border: #00a1e7 1px solid;
+    padding: 0 8px 0 8px;
+}
+
+table{
+    border: #00a1e7 1px solid;
+    border-collapse: collapse;
+}
+
+.issueNumber{
+    width: 40px;
+    text-align: center;
+}
+
+.issueCaption{
+    width: 464px;
+}
+
+.cellName{
+    border-right: none;
+}
+
+.issueStatus{
+    border-left: none;
+    text-align: center;
+    width: 118px;
+}
+
+.issuePriority{
+    border-left: none;
+    text-align: center;
+    width: 118px;
+}
+
+.major{
+    background-color: #fdfaa9;
+}
+
+.normal{
+    background-color: #cbebf3;
+}
+
+.critical{
+    background-color: #fdc5c5;
+}
