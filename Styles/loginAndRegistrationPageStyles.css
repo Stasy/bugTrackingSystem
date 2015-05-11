@@ -1,0 +1,61 @@
+.formsWrapper{
+    display:block;
+    margin-top: 30px;
+}
+
+.block{
+    display: inline-block;
+    margin-left: 180px;
+    height: 293px;
+    width: 240px;
+    position: absolute;
+}
+
+.login{
+    border: 1px solid #24f692;
+}
+
+.registration{
+    border: 1px solid #00a1e7;
+    margin-left: 560px; !important;
+}
+
+.loginHeader{
+    text-align: center;
+    font-size: 22px;
+    background-color: #b0fbd8;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.registrationHeader{
+    text-align: center;
+    font-size: 22px;
+    background-color: #cbebf3;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.blockHead{
+    margin: 0;
+    padding-top: 10px;
+}
+
+#loginName, #pass,  #registrationLogin, #registrationPass, #registrationConfirmPass{
+    width: 170px;
+    margin: 15px 0 0 15px;
+}
+
+#loginButton, #registrationButton{
+    width: 200px;
+    margin: 25px 0 0 15px;
+}
+
+#registrationHint{
+    padding: 0; !important;
+    margin-left: 0px; !important;
+}
+
+#loginButton{
+    margin-top: 70px; !important;
+}

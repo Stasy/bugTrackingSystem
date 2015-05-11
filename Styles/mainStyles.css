@@ -108,8 +108,16 @@ input:focus{
 
 .blueButton{
     height: 30px;
+    padding: 0 20px 0 20px;
     border: 1px solid #6582c6;
     background-color: #7091bd;
+    text-align: center;
+}
+
+.lightBlueButton{
+    height: 30px;
+    border: 1px solid #6582c6;
+    background-color: #00a1e7;
     padding: 0 20px 0 20px;
     text-align: center;
 }
@@ -176,4 +184,14 @@ input:focus{
 .commentAndSaveWrapper{
     display: block;
     margin-top: 50px;
+}
+
+.hintText{
+    font-size: 12px;
+    padding: 0 0 5px 10px;
+    color: #7E7E7F;
+}
+
+.textCenter{
+    text-align: center;
 }
