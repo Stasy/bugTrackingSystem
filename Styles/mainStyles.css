@@ -79,8 +79,27 @@ body{
     placeholdear: #7E7E7F 16px;
 }
 
+.greenInput {
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #24f692;
+    padding: 0 15px 0 15px;
+    placeholdear: #7E7E7F 16px;
+}
+
+.grayTextBox{
+    height: 30px;
+    border: 1px solid #7E7E7F;
+    padding: 15px 15px 0 15px;
+    placeholdear: Arial #7E7E7F 16px;
+}
+
 input{
     margin:0;
+}
+
+textarea:focus{
+    outline: none;
 }
 
 input:focus{
@@ -136,4 +155,25 @@ input:focus{
 }
 #statusFilterVerified{
     margin: 0 20px 0 0;
+}
+
+.editIssueWrapper{
+    display: block;
+    margin-top: 30px;
+    border: 1px solid #24f692;
+    width: 880px;
+    padding: 30px 30px 30px 30px;
+}
+
+.simpleDropDown{
+    border: none;
+    width: 80px;
+    color: #7E7E7F;
+    font-size: 16px;
+    margin: 0 7px 0 7px;
+}
+
+.commentAndSaveWrapper{
+    display: block;
+    margin-top: 50px;
 }

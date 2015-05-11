@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" href="../Styles/mainStyles.css" rel="stylesheet">
+    <link type="text/css" href="../Styles/headerStyles.css" rel="stylesheet">
+    <link type="text/css" href="../Styles/editIssuePageStyles.css" rel="stylesheet">
+    <title>RoboBug</title>
+</head>
+<body>
+<div class="headerWrapper">
+    <div class="topLine"></div>
+    <div class="globalHeader">
+        <div class="globalHeaderLeft">
+            <span id="projectName" class="simpleBlackText">projectName</span>
+            <a id="changeProjectLink" class="simpleBlackText" href="">Сменить</a>
+        </div>
+        <div class="globalHeaderRight">
+            <span id="userName" class="simpleBlackText">userName</span>
+            <a id="logoutLink" class="simpleBlackText" href="">Сменить</a>
+        </div>
+    </div>
+</div>
+
+<div Class="bodyWrapper">
+    <div id="logo"></div>
+    <div id="systemNameWrapper">
+        <p id="systemNameText"><span class="header">RoboBug</span></br><span class="text">Bug tracking system</span></p>
+    </div>
+    <div id="searchRowWrapper">
+        <input type="search" placeholder="Введите текст для поиска" class="blueInput simpleBlackText" id="searchRow">
+        <input type="button" value="Искать" class="blueButton simpleWhiteText">
+    </div>
+
+    <div class="editIssueWrapper">
+        <input type="text" id="issueCaption" placeholder="Заголовок бага: " class="simpleBlackText greenInput">
+        <div class="issueInformationWrapper">
+            <textarea id="issueBody" placeholder="Введите текст бага" class="simpleBlackText grayTextBox"></textarea>
+            <div class="issuePropertiesWrapper">
+                <table>
+                    <tr>
+                        <td class="cellName simpleGrayText">Кем создан:</td>
+                        <td class="property simpleGrayText">userName</td>
+                    </tr>
+                    <tr>
+                        <td class="cellName simpleGrayText">Когда:</td>
+                        <td class="property simpleGrayText">currentDate</td>
+                    </tr>
+                    <tr>
+                        <td class="cellName simpleGrayText">Приоритет:</td>
+                        <td class="property simpleGrayText">
+                            <input list="priorityProperty" value="выберите" class="simpleDropDown">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cellName simpleGrayText">Статус:</td>
+                        <td class="property simpleGrayText">
+                            <input list="statusProperty" value="выберите"  class="simpleDropDown">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="commentAndSaveWrapper">
+                <textarea type="text" id="issueComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox"></textarea>
+                <input type="button" id="SaveButton" class="greenButton simpleWhiteText" value="Сохранить">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footerWrapper"></div>
+</body>
+</html>

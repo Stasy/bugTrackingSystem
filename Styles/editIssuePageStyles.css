@@ -1,0 +1,55 @@
+#issueCaption{
+    width: 830px;
+}
+
+.issueInformationWrapper{
+    display: block;
+    padding-top: 40px;
+}
+
+#issueBody{
+    height: 105px;
+    min-width: 600px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+#issueComment{
+    height: 35px;
+    min-width: 600px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.issuePropertiesWrapper{
+    display: inline-block;
+}
+
+tr{
+    height: 30px;
+}
+
+td{
+    border: none;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.cellName{
+    border: none; !important;
+    text-align: right;
+    padding-right: 7px;
+}
+
+.property{
+    text-align: center;
+    width: 120px;
+    border: #24f692 1px solid;
+}
+
+#SaveButton{
+    width: 160px;
+    margin: 8px 0 0 38px;
+}
