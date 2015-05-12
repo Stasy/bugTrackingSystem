@@ -51,6 +51,11 @@ body{
     margin-top: -3px;
 }
 
+#userName, #projectName{
+    margin-right: -3px; !important;
+    margin-left: -3px; !important;
+}
+
 #systemNameWrapper .header{
     font-size: 26px;
     color: black;

@@ -6,6 +6,7 @@
     <link type="text/css" href="../Styles/headerStyles.css" rel="stylesheet">
     <link type="text/css" href="../Styles/editProjectPageStyles.css" rel="stylesheet">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="../Scripts/mainScripts.js"></script>
     <title>RoboBug</title>
 </head>
 <body>
@@ -13,19 +14,22 @@
     <div class="topLine"></div>
     <div class="globalHeader">
         <div class="globalHeaderLeft">
-            <span id="projectName" class="simpleBlackText">projectName</span>
-            <a id="changeProjectLink" class="simpleBlackText" href="">Сменить</a>
+            <label for="projectName" class="simpleBlackText">
+                <span id="projectName" class="simpleBlackText">projectName</span> &#9661;
+            </label>
+            <a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.html">Редактировать</a>
         </div>
         <div class="globalHeaderRight">
-            <span id="userName" class="simpleBlackText">userName</span>
-            <a id="logoutLink" class="simpleBlackText" href="">Сменить</a>
+            <label for="userName" class="simpleBlackText">
+                <span id="userName" class="simpleBlackText">userName</span> &#9661;
+            </label>
         </div>
     </div>
 </div>
 
 <div Class="bodyWrapper">
-    <div id="logo"></div>
-    <div id="systemNameWrapper">
+    <div id="logo" onclick="GoToMainPage()"></div>
+    <div id="systemNameWrapper" onclick="GoToMainPage()">
         <p id="systemNameText"><span class="header">RoboBug</span></br><span class="text">Bug tracking system</span></p>
     </div>
     <div id="searchRowWrapper">
