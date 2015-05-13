@@ -6,6 +6,7 @@
     <link type="text/css" href="../Styles/headerStyles.css" rel="stylesheet">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <script type="text/javascript" src="../Scripts/mainScripts.js"></script>
+    <script type="text/javascript" src="../Scripts/dropdownScripts.js"></script>
     <title>RoboBug</title>
 </head>
 <body>
@@ -13,15 +14,41 @@
     <div class="topLine"></div>
     <div class="globalHeader">
         <div class="globalHeaderLeft">
-            <label for="projectName" class="simpleBlackText">
-                <span id="projectName" class="simpleBlackText">projectName</span> &#9661;
-            </label>
+
+            <div class="dropdownRatingWrapper">
+                <label class="tableFiltersDropdown" for="projectName">
+                    <a id="projectName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating4ID')" onblur="closingClickNew()">
+                        projectName&nbsp;&#9661;
+                    </a>
+                </label>
+                <div id="dropdownRating4ID" class="dropdownRatingULdisplayNone">
+                    <ul>
+                        <li><a href="#" class="simpleGrayText">project2</a></li>
+                        <li><a href="#" class="simpleGrayText">project3</a></li>
+                        <li><a href="EditProjectPage.html" class="simpleGrayText">Добавить</a></li>
+                    </ul>
+                </div>
+            </div>
+
             <a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.html">Редактировать</a>
         </div>
         <div class="globalHeaderRight">
-            <label for="userName" class="simpleBlackText">
-                <span id="userName" class="simpleBlackText">userName</span> &#9661;
-            </label>
+
+            <div class="dropdownRatingWrapper">
+                <label class="tableFiltersDropdown" for="userName">
+                    <a id="userName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating3ID')" onblur="closingClickNew()">
+                        userName&nbsp;&#9661;
+                    </a>
+                </label>
+                <div id="dropdownRating3ID" class="dropdownRatingULdisplayNone">
+                    <ul>
+                        <li><a href="#" class="simpleGrayText">user2</a></li>
+                        <li><a href="#" class="simpleGrayText">user3</a></li>
+                        <li><a href="LoginAndRegistrationPage.html" class="simpleGrayText">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

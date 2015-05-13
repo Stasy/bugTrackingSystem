@@ -12,12 +12,14 @@ body{
     font-size: 16px;
     text-decoration: none;
     margin: 0 7px 0 7px;
+    text-decoration: none;
 }
 
 .simpleGrayText{
     color: #7E7E7F;
     font-size: 16px;
     margin: 0 7px 0 7px;
+    text-decoration: none;
 }
 
 .simpleWhiteText{
@@ -181,7 +183,6 @@ input:focus{
 .simpleDropDown{
     border: none;
     width: 80px;
-    color: #7E7E7F;
     font-size: 16px;
     margin: 0 7px 0 7px;
 }
@@ -200,3 +201,62 @@ input:focus{
 .textCenter{
     text-align: center;
 }
+
+/************************/
+/*DropDownStyles */
+ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdownRatingWrapper{
+    display: inline-block
+}
+
+.tableFiltersDropdown{
+    display: inline-block;
+    padding: 0px;
+    vertical-align: top;
+}
+
+.dropdownRatingULdisplayNone {
+    display: none;
+    border: 1px solid #7E7E7F;
+    border-bottom: none;
+    border-top: none;
+    padding: 0;
+}
+
+.dropdownRatingUL li {
+    border-bottom:1px solid #7E7E7F;
+    width: 123px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    background: #f4f4f4;
+}
+
+.dropdownRatingUL li:hover{
+    background: #d1d1d2;
+}
+
+.dropdownRatingUL li:hover a{
+    color: white;
+}
+
+.dropdownRatingUL {
+    display: block;
+    border: 1px solid #7E7E7F;
+    border-top: none;
+    border-bottom: none;
+    padding: 0;
+    position: fixed;
+    z-index: 1000;
+}
+/************************/

@@ -53,3 +53,7 @@ table{
     width: 160px;
     margin: 8px 0 0 38px;
 }
+
+#priorityPropertyList, #statusPropertyList{
+    margin-right: -3px; !important;
+}

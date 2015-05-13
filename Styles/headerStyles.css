@@ -15,7 +15,13 @@
 }
 
 .globalHeaderRight{
-    margin-left: 685px;
+    margin-left: 700px;
     padding-top: 12px;
+    display: inline-block;
+}
+
+#editProjectLink{
+    margin-top: 5px;
+    vertical-align: middle;
     display: inline-block;
 }
