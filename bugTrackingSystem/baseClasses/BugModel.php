@@ -5,16 +5,18 @@ class BugModel {
     public $BugContent;
     public $BugStatus;
     public $BugPriority;
+    public $BugComment;
 
     public $ProjectName;
     public $AuthorName;
     public $UserName;
 
-    public function setBugProperties($caption, $content, $status, $priority, $projectName, $authorName, $userName){
+    public function setBugProperties($caption, $content, $status, $priority, $projectName, $authorName, $userName, $comment){
         $this->BugCaption = $caption;
         $this->BugContent = $content;
         $this->BugPriority = $priority;
         $this->BugStatus = $status;
+        $this->BugComment = $comment;
 
         $this->ProjectName = $projectName;
         $this->AuthorName = $authorName;

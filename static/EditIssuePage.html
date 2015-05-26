@@ -65,69 +65,96 @@
     </div>
 
     <div class="editPageWrapper">
-        <input type="text" id="issueCaption" placeholder="Заголовок бага: " class="simpleBlackText greenInput">
-        <div class="issueInformationWrapper">
-            <textarea id="issueBody" placeholder="Введите текст бага" class="simpleBlackText grayTextBox"></textarea>
-            <div class="issuePropertiesWrapper">
-                <table>
-                    <tr>
-                        <td class="cellName simpleGrayText">Кем создан:</td>
-                        <td class="property simpleGrayText">authorName</td>
-                    </tr>
-                    <tr>
-                        <td class="cellName simpleGrayText">На ком:</td>
-                        <td class="property simpleGrayText">userName</td>
-                    </tr>
-                    <tr>
-                        <td class="cellName simpleGrayText">Приоритет:</td>
-                        <td class="property simpleGrayText">
+        <form action="../bugTrackingSystem/handlers/createIssue.php" method="post">
 
-                            <div class="dropdownRatingWrapper">
-                                <label class="tableFiltersDropdown" for="priorityPropertyList">
-                                    <a id="priorityPropertyList" class="rankFilter simpleGrayText " href="#" onclick="changerNew('dropdownRating2ID')" onblur="closingClickNew()">
-                                        выберите&nbsp;&#9661;
-                                    </a>
-                                </label>
-                                <div id="dropdownRating2ID" class="dropdownRatingULdisplayNone">
-                                    <ul>
-                                        <li><a href="#" class="simpleGrayText">Normal</a></li>
-                                        <li><a href="#" class="simpleGrayText">Major</a></li>
-                                        <li><a href="#" class="simpleGrayText">Critical</a></li>
-                                    </ul>
+            <input type="hidden" value="default" name="projectName">
+            <input type="hidden" value="default" name="status">
+            <input type="hidden" value="default" name="priority">
+            <input type="hidden" value="default" name="authorName">
+            <input type="hidden" value="default" name="userName">
+
+            <input type="text" id="issueCaption" name="caption" placeholder="Заголовок бага: " class="simpleBlackText greenInput">
+            <div class="issueInformationWrapper">
+                <textarea name="content" id="issueBody" placeholder="Введите текст бага" class="simpleBlackText grayTextBox"></textarea>
+                <div class="issuePropertiesWrapper">
+                    <table>
+                        <tr>
+                            <td class="cellName simpleGrayText">Кем создан:</td>
+                            <td class="property simpleGrayText">authorName</td>
+                        </tr>
+
+                        <tr>
+                            <td class="cellName simpleGrayText">На ком:</td>
+                            <td class="property simpleGrayText">
+
+                                <div class="dropdownRatingWrapper">
+                                    <label class="tableFiltersDropdown" for="projectsUsersList">
+                                        <a id="projectsUsersList" class="rankFilter simpleGrayText " onclick="changerNew('dropdownRating6ID')" onblur="closingClickNew()">
+                                            выберите&nbsp;&#9661;
+                                        </a>
+                                    </label>
+                                    <div id="dropdownRating6ID" class="dropdownRatingULdisplayNone">
+                                        <ul>
+                                            <li><a href="#" class="simpleGrayText" onclick="choose('projectsUsersList','user2','dropdownRating6ID','userName')">user2</a></li>
+                                            <li><a href="#" class="simpleGrayText" onclick="choose('projectsUsersList','user3','dropdownRating6ID','userName')">user3</a></li>
+                                            <li><a href="#" class="simpleGrayText" onclick="choose('projectsUsersList','user4','dropdownRating6ID','userName')">user4</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
+                            </td>
+                        </tr>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="cellName simpleGrayText">Статус:</td>
-                        <td class="property simpleGrayText">
+                        <tr>
+                            <td class="cellName simpleGrayText">Приоритет:</td>
+                            <td class="property simpleGrayText">
 
-                            <div class="dropdownRatingWrapper">
-                                <label class="tableFiltersDropdown" for="statusPropertyList">
-                                    <a id="statusPropertyList" class="rankFilter simpleGrayText" href="#" onclick="changerNew('dropdownRating1ID')" onblur="closingClickNew()">
-                                        выберите&nbsp;&#9661;
-                                    </a>
-                                </label>
-                                <div id="dropdownRating1ID" class="dropdownRatingULdisplayNone">
-                                    <ul>
-                                        <li><a href="#" class="simpleGrayText">Open</a></li>
-                                        <li><a href="#" class="simpleGrayText">Fixed</a></li>
-                                        <li><a href="#" class="simpleGrayText">Verified</a></li>
-                                    </ul>
+                                <div class="dropdownRatingWrapper">
+                                    <label class="tableFiltersDropdown" for="priorityPropertyList">
+                                        <a id="priorityPropertyList" class="rankFilter simpleGrayText " onclick="changerNew('dropdownRating2ID')" onblur="closingClickNew()">
+                                            выберите&nbsp;&#9661;
+                                        </a>
+                                    </label>
+                                    <div id="dropdownRating2ID" class="dropdownRatingULdisplayNone">
+                                        <ul>
+                                            <li><a href="#" class="simpleGrayText" onclick="choose('priorityPropertyList','Normal','dropdownRating2ID','priority')">Normal</a></li>
+                                            <li><a href="#" class="simpleGrayText" onclick="choose('priorityPropertyList','Major','dropdownRating2ID','priority')">Major</a></li>
+                                            <li><a href="#" class="simpleGrayText" onclick="choose('priorityPropertyList','Critical','dropdownRating2ID','priority')">Critical</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cellName simpleGrayText">Статус:</td>
+                            <td class="property simpleGrayText">
 
-            <div class="commentAndSaveWrapper">
-                <textarea type="text" id="issueComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox"></textarea>
-                <input type="button" id="SaveButton" class="greenButton simpleWhiteText" value="Сохранить">
+                                <div class="dropdownRatingWrapper">
+                                    <label class="tableFiltersDropdown" for="statusPropertyList">
+                                        <a id="statusPropertyList" class="rankFilter simpleGrayText" href="#" onclick="changerNew('dropdownRating1ID')" onblur="closingClickNew()">
+                                            выберите&nbsp;&#9661;
+                                        </a>
+                                    </label>
+                                    <div id="dropdownRating1ID" class="dropdownRatingULdisplayNone">
+                                        <ul>
+                                            <li><a href="#" class="simpleGrayText" onclick="choose('statusPropertyList','Open','dropdownRating1ID','status')">Open</a></li>
+                                            <li><a href="#" class="simpleGrayText" onclick="choose('statusPropertyList','Fixed','dropdownRating1ID','status')">Fixed</a></li>
+                                            <li><a href="#" class="simpleGrayText" onclick="choose('statusPropertyList','Verified','dropdownRating1ID','status')">Verified</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="commentAndSaveWrapper">
+                    <textarea name="comment" type="text" id="issueComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox"></textarea>
+                    <input type="submit" id="SaveButton" class="greenButton simpleWhiteText" value="Сохранить">
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 

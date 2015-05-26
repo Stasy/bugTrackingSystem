@@ -21,3 +21,11 @@ function closingClickNew () {
     clickForClose = document.getElementById("dropdownRatingID");
     clickForClose.className = 'dropdownRatingULdisplayNone';
 }
+
+function choose(defaultValueId, value, dropdownId, propertyName){
+    document.getElementById(defaultValueId).innerHTML = value + '&nbsp;&#9661';
+    changerNew(dropdownId);
+
+    if(propertyName != undefined)
+       document.getElementsByName(propertyName)[0].value = value;
+}
