@@ -38,9 +38,12 @@
                 </label>
                 <div id="dropdownRating4ID" class="dropdownRatingULdisplayNone">
                     <ul>
-                        <li><a href="#" class="simpleGrayText">project2</a></li>
-                        <li><a href="#" class="simpleGrayText">project3</a></li>
-                        <li><a href="EditProjectPage.html" class="simpleGrayText">Добавить</a></li>
+                        <?php
+                            for($i=0; $i< count($projects);$i=$i+1){
+                                echo('<li><a href="#" class="simpleGrayText">'.$projects[$i].'</a></li>');
+                            }
+                        ?>
+                        <li><a href="EditProjectPage.php" class="simpleGrayText">Добавить</a></li>
                     </ul>
                 </div>
             </div>
@@ -59,8 +62,6 @@
                 </label>
                 <div id="dropdownRating3ID" class="dropdownRatingULdisplayNone">
                     <ul>
-                        <li><a href="#" class="simpleGrayText">user2</a></li>
-                        <li><a href="#" class="simpleGrayText">user3</a></li>
                         <li><a href="LoginAndRegistrationPage.php" class="simpleGrayText">Выйти</a></li>
                     </ul>
                 </div>
