@@ -15,8 +15,8 @@ class init {
         if(!mysql_select_db($config->dbname, $connectionId))
             echo "База данных $config->dbname не найдена<br>";
 
-        $createUsersTableQuery = "create table $config->usersTableName (user_id int(10) AUTO_INCREMENT, user_name varchar(30) NOT NULL, projects varchar(2000) NOT NULL, PRIMARY KEY (user_id))";
-        $createProjectsTableQuery = "create table $config->projectsTableName (project_id int(10) AUTO_INCREMENT, project_name varchar(30) NOT NULL, users varchar(2000) NOT NULL, PRIMARY KEY (project_id))";
+        $createUsersTableQuery = "create table $config->usersTableName (user_id int(10) AUTO_INCREMENT, user_name varchar(30) NOT NULL, user_pass VARCHAR(30) NOT NULL, projects varchar(2000), PRIMARY KEY (user_id))";
+        $createProjectsTableQuery = "create table $config->projectsTableName (project_id int(10) AUTO_INCREMENT, project_name varchar(30) NOT NULL, users varchar(2000) NOT NULL,comment varchar(500), PRIMARY KEY (project_id))";
         $createIssuesTableQuery = "create table $config->issuesTableName (bug_id int(10) AUTO_INCREMENT, caption varchar(1000) NOT NULL, content varchar(5000) NOT NULL, status varchar(20) NOT NULL, priority varchar(20) NOT NULL, project varchar(20) NOT NULL, author varchar(20) NOT NULL, currentUser varchar(20) NOT NULL, comment varchar(500), PRIMARY KEY (bug_id))";
 
         if(mysql_query($createUsersTableQuery, $connectionId))

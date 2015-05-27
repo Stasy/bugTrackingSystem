@@ -3,9 +3,11 @@
 class UserModel {
     public $UserName;
     public $ProjectsNames;
+    public $Password;
 
-    public function setUserProperties($uName, $pNames){
+    public function setUserProperties($uName, $pass, $pNames){
         $this->UserName = $uName;
+        $this->Password = $pass;
         $this->ProjectsNames = $pNames;
     }
 

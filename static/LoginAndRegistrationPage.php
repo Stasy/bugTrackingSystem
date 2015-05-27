@@ -1,10 +1,18 @@
+<?php
+    session_start();
+
+    //Затираем сессию при входе на страницу
+    $_SESSION['login']='';
+    $_SESSION['currentProject']='';
+?>
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <link type="text/css" href="../Styles/mainStyles.css" rel="stylesheet">
     <link type="text/css" href="../Styles/headerStyles.css" rel="stylesheet">
-    <link type="text/css" href="../Styles/editProjectPageStyles.css" rel="stylesheet">
+    <link type="text/css" href="../Styles/loginAndRegistrationPageStyles.css" rel="stylesheet">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <script type="text/javascript" src="../Scripts/mainScripts.js"></script>
     <script type="text/javascript" src="../Scripts/dropdownScripts.js"></script>
@@ -16,7 +24,7 @@
     <div class="globalHeader">
         <div class="globalHeaderLeft">
 
-            <div class="dropdownRatingWrapper">
+            <!--<div class="dropdownRatingWrapper">
                 <label class="tableFiltersDropdown" for="projectName">
                     <a id="projectName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating4ID')" onblur="closingClickNew()">
                         projectName&nbsp;&#9661;
@@ -31,11 +39,11 @@
                 </div>
             </div>
 
-            <a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.html">Редактировать</a>
+            <a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.html">Редактировать</a>-->
         </div>
         <div class="globalHeaderRight">
 
-            <div class="dropdownRatingWrapper">
+            <!--<div class="dropdownRatingWrapper">
                 <label class="tableFiltersDropdown" for="userName">
                     <a id="userName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating3ID')" onblur="closingClickNew()">
                         userName&nbsp;&#9661;
@@ -48,34 +56,43 @@
                         <li><a href="LoginAndRegistrationPage.html" class="simpleGrayText">Выйти</a></li>
                     </ul>
                 </div>
-            </div>
+            </div>-->
 
         </div>
     </div>
 </div>
 
 <div Class="bodyWrapper">
-    <div id="logo" onclick="GoToMainPage()"></div>
-    <div id="systemNameWrapper" onclick="GoToMainPage()">
+    <div id="logo"></div>
+    <div id="systemNameWrapper">
         <p id="systemNameText"><span class="header">RoboBug</span></br><span class="text">Bug tracking system</span></p>
     </div>
-    <div id="searchRowWrapper">
-        <input type="search" placeholder="Введите текст для поиска" class="blueInput simpleBlackText" id="searchRow">
-        <input type="button" value="Искать" class="blueButton simpleWhiteText">
-    </div>
 
-    <div class="editPageWrapper">
-        <input type="text" id="projectCaption" placeholder="Имя проекта: " class="simpleBlackText greenInput">
-        <div class="projectInformationWrapper">
-            <p class="hintText">Введите имена пользователей, которые имеют право
-            доступа для работы в данном проекте, через пробел в окно ниже. Например: user1 user2</p>
-            <textarea id="projectBody" class="simpleBlackText grayTextBox"></textarea>
-
-            <div class="commentAndSaveWrapper">
-                <textarea type="text" id="projectComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox"></textarea>
-                <input type="button" id="SaveButton" class="greenButton simpleWhiteText" value="Сохранить">
+    <div class="formsWrapper simpleGrayText">
+        <form action="../bugTrackingSystem/handlers/login.php" method="post">
+            <div class="login block">
+                <div class="loginHeader">
+                    <p class="blockHead">Войти</p>
+                </div>
+                <input type="email" name="user_name" id="loginName" class="greenInput simpleGrayText" placeholder="email:">
+                <input type="password" name="user_pass" id="pass" class="greenInput simpleGrayText" placeholder="pass:">
+                <input type="submit" id="loginButton" class="greenButton simpleWhiteText textCenter" value="Войти">
             </div>
-        </div>
+        </form>
+
+        <form action="../bugTrackingSystem/handlers/saveUser.php" method="post">
+            <div class="registration block">
+                <div class="registrationHeader">
+                    <p class="blockHead">Зарегистрироваться</p>
+                </div>
+                <input type="email" name="user_name" id="registrationLogin" class="blueInput simpleGrayText" placeholder="email:">
+                <input type="password" name="user_pass" id="registrationPass" class="blueInput simpleGrayText" placeholder="pass:">
+                <input type="password" name="user_pass2" id="registrationConfirmPass" class="blueInput simpleGrayText" placeholder="confirm pass:">
+                <input type="submit" id="registrationButton" class="lightBlueButton simpleWhiteText textCenter" value="Зарегистрироваться">
+                <p class="hintText textCenter" id="registrationHint">Дальнейшие инструкции будут отправлены на ваш email</p>
+            </div>
+        </form>
+
     </div>
 </div>
 

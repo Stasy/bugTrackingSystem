@@ -7,9 +7,9 @@ function GoToEditProjectPage(){
 }
 
 function GoToLoginAndRegistrationPage(){
-    window.location.pathname = "/bugTrackingSystem/Static/LoginAndRegistrationPage.html";
+    window.location.pathname = "/bugTrackingSystem/Static/LoginAndRegistrationPage.php";
 }
 
 function GoToMainPage(){
-    window.location.pathname = "/bugTrackingSystem/Static/MainPage.html";
+    window.location.pathname = "/bugTrackingSystem/Static/MainPage.php";
 }

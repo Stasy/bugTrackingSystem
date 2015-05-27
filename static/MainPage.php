@@ -1,3 +1,15 @@
+<?php
+    include '../bugTrackingSystem/handlers/checks.php';
+    include '../configurations/roboBugConfig.php';
+
+    session_start();
+    $checks = new checks();
+    if(!$checks->CheckLogin())
+        exit;
+
+    $config = new roboBugConfig();
+    $projects = $checks->CheckProject($config);
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -19,7 +31,9 @@
             <div class="dropdownRatingWrapper">
                 <label class="tableFiltersDropdown" for="projectName">
                     <a id="projectName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating4ID')" onblur="closingClickNew()">
-                        projectName&nbsp;&#9661;
+                        <?php
+                            echo $_SESSION['currentProject'].'&nbsp;&#9661;';
+                        ?>
                     </a>
                 </label>
                 <div id="dropdownRating4ID" class="dropdownRatingULdisplayNone">
@@ -38,14 +52,16 @@
             <div class="dropdownRatingWrapper">
                 <label class="tableFiltersDropdown" for="userName">
                     <a id="userName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating3ID')" onblur="closingClickNew()">
-                        userName&nbsp;&#9661;
+                        <?php
+                                echo $_SESSION['login'] .'&nbsp;&#9661;';
+                        ?>
                     </a>
                 </label>
                 <div id="dropdownRating3ID" class="dropdownRatingULdisplayNone">
                     <ul>
                         <li><a href="#" class="simpleGrayText">user2</a></li>
                         <li><a href="#" class="simpleGrayText">user3</a></li>
-                        <li><a href="LoginAndRegistrationPage.html" class="simpleGrayText">Выйти</a></li>
+                        <li><a href="LoginAndRegistrationPage.php" class="simpleGrayText">Выйти</a></li>
                     </ul>
                 </div>
             </div>

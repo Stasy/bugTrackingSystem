@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link type="text/css" href="../Styles/mainStyles.css" rel="stylesheet">
     <link type="text/css" href="../Styles/headerStyles.css" rel="stylesheet">
-    <link type="text/css" href="../Styles/loginAndRegistrationPageStyles.css" rel="stylesheet">
+    <link type="text/css" href="../Styles/editProjectPageStyles.css" rel="stylesheet">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <script type="text/javascript" src="../Scripts/mainScripts.js"></script>
     <script type="text/javascript" src="../Scripts/dropdownScripts.js"></script>
@@ -45,7 +45,7 @@
                     <ul>
                         <li><a href="#" class="simpleGrayText">user2</a></li>
                         <li><a href="#" class="simpleGrayText">user3</a></li>
-                        <li><a href="LoginAndRegistrationPage.html" class="simpleGrayText">Выйти</a></li>
+                        <li><a href="LoginAndRegistrationPage.php" class="simpleGrayText">Выйти</a></li>
                     </ul>
                 </div>
             </div>
@@ -59,26 +59,25 @@
     <div id="systemNameWrapper" onclick="GoToMainPage()">
         <p id="systemNameText"><span class="header">RoboBug</span></br><span class="text">Bug tracking system</span></p>
     </div>
+    <div id="searchRowWrapper">
+        <input type="search" placeholder="Введите текст для поиска" class="blueInput simpleBlackText" id="searchRow">
+        <input type="button" value="Искать" class="blueButton simpleWhiteText">
+    </div>
 
-    <div class="formsWrapper simpleGrayText">
-        <div class="login block">
-            <div class="loginHeader">
-                <p class="blockHead">Войти</p>
+    <div class="editPageWrapper">
+        <form action="../bugTrackingSystem/handlers/createProject.php" method="post">
+            <input type="text" name="project_name" id="projectCaption" placeholder="Имя проекта: " class="simpleBlackText greenInput">
+            <div class="projectInformationWrapper">
+                <p class="hintText">Введите имена пользователей, которые имеют право
+                доступа для работы в данном проекте, через пробел в окно ниже. Например: user1 user2</p>
+                <textarea name="users" id="projectBody" class="simpleBlackText grayTextBox"></textarea>
+
+                <div class="commentAndSaveWrapper">
+                    <textarea name="comment" type="text" id="projectComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox"></textarea>
+                    <input type="submit" id="SaveButton" class="greenButton simpleWhiteText" value="Сохранить">
+                </div>
             </div>
-            <input type="email" id="loginName" class="greenInput simpleGrayText" placeholder="email:">
-            <input type="email" id="pass" class="greenInput simpleGrayText" placeholder="pass:">
-            <input type="button" id="loginButton" class="greenButton simpleWhiteText textCenter" value="Войти">
-        </div>
-        <div class="registration block">
-            <div class="registrationHeader">
-                <p class="blockHead">Зарегистрироваться</p>
-            </div>
-            <input type="email" id="registrationLogin" class="blueInput simpleGrayText" placeholder="email:">
-            <input type="email" id="registrationPass" class="blueInput simpleGrayText" placeholder="pass:">
-            <input type="email" id="registrationConfirmPass" class="blueInput simpleGrayText" placeholder="confirm pass:">
-            <input type="button" id="registrationButton" class="lightBlueButton simpleWhiteText textCenter" value="Зарегистрироваться">
-            <p class="hintText textCenter" id="registrationHint">Дальнейшие инструкции будут отправлены на ваш email</p>
-        </div>
+        </form>
     </div>
 </div>
 

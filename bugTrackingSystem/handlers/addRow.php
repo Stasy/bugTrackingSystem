@@ -14,13 +14,9 @@ class addRowClass {
         mysql_close($connectionId);
     }
 
-    public function dbConnect(&$config)
+    public function dbConnect($config)
     {
         $connectionId = mysql_connect($config->dbhost, $config->dbuser, $config->dbpassword);
-        if($connectionId)
-            echo 'Connect wos success<br>';
-        else
-            die('При подключении к серверу базы данных произошла ошибка<br>');
 
         if(!mysql_select_db($config->dbname, $connectionId))
             echo "База данных $config->dbname не найдена<br>";
