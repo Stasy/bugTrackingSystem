@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -67,7 +70,9 @@
     <div class="editPageWrapper">
         <form action="../bugTrackingSystem/handlers/createIssue.php" method="post">
 
-            <input type="hidden" value="default" name="projectName">
+            <?php
+                echo '<input type="hidden" value="'. $_SESSION['currentProject'].'" name="projectName">';
+            ?>
             <input type="hidden" value="default" name="status">
             <input type="hidden" value="default" name="priority">
             <input type="hidden" value="default" name="authorName">

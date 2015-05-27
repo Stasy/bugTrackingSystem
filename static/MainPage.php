@@ -91,30 +91,23 @@
 
     <div class="issuesListWrapper">
         <table frame="border">
-            <tr class="issueItem">
-                <td class="issueNumber">1</td>
-                <td class="issueCaption">Здесь будет отображаться заголовок бага...</td>
-                <td class="cellName simpleGrayText">status:</td>
-                <td class="issueStatus">Open</td>
-                <td class="cellName simpleGrayText critical">priority:</td>
-                <td class="issuePriority critical">Critical</td>
-            </tr>
-            <tr class="issueItem">
-                <td class="issueNumber">2</td>
-                <td class="issueCaption">Здесь будет отображаться заголовок бага...</td>
-                <td class="cellName simpleGrayText">status:</td>
-                <td class="issueStatus">Fixed</td>
-                <td class="cellName simpleGrayText normal">priority:</td>
-                <td class="issuePriority normal">Normal</td>
-            </tr>
-            <tr class="issueItem">
-                <td class="issueNumber">3</td>
-                <td class="issueCaption">Здесь будет отображаться заголовок бага...</td>
-                <td class="cellName simpleGrayText">status:</td>
-                <td class="issueStatus">Reopened</td>
-                <td class="cellName simpleGrayText major">priority:</td>
-                <td class="issuePriority major">Major</td>
-            </tr>
+
+            <?php
+
+                $bugs = $checks->SearchBugs($config);
+
+                for($i=0; $i<count($bugs); $i=$i+1) {
+
+                    echo '<tr class="issueItem">
+                            <td class="issueNumber">' . $bugs[$i]['bug_id'] . '</td>
+                            <td class="issueCaption">' . $bugs[$i]['caption'] . '</td>
+                            <td class="cellName simpleGrayText">status:</td>
+                            <td class="issueStatus">' . $bugs[$i]['status'] . '</td>
+                            <td class="cellName simpleGrayText '.$bugs[$i]['priority'].'">priority:</td>
+                            <td class="issuePriority '.$bugs[$i]['priority'].'">' . $bugs[$i]['priority'] . '</td>
+                        </tr>';
+                }
+            ?>
         </table>
     </div>
 

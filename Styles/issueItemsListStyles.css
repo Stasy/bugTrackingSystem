@@ -38,14 +38,14 @@ table{
     width: 118px;
 }
 
-.major{
+.Major {
     background-color: #fdfaa9;
 }
 
-.normal{
+.Normal {
     background-color: #cbebf3;
 }
 
-.critical{
+.Critical {
     background-color: #fdc5c5;
 }

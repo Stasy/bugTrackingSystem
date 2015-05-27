@@ -1,9 +1,9 @@
 function GoToEditIssuePage(){
-    window.location.pathname = "/bugTrackingSystem/Static/EditIssuePage.html";
+    window.location.pathname = "/bugTrackingSystem/Static/EditIssuePage.php";
 }
 
 function GoToEditProjectPage(){
-    window.location.pathname = "/bugTrackingSystem/Static/EditProjectPage.html";
+    window.location.pathname = "/bugTrackingSystem/Static/EditProjectPage.php";
 }
 
 function GoToLoginAndRegistrationPage(){

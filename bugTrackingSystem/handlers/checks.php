@@ -12,6 +12,23 @@ class checks {
             return true;
     }
 
+    public function SearchBugs($conf){
+        $project = $_SESSION['currentProject'];
+
+        $db = new addRowClass();
+        $db->dbConnect($conf);
+        $script = "SELECT * FROM $conf->issuesTableName WHERE project='$project'";
+
+        $counter = 0;
+        $result = mysql_query($script);
+
+        while($a = mysql_fetch_array($result,MYSQL_ASSOC)){
+            $resultMass[$counter] = $a;
+            $counter = $counter + 1;
+        }
+        return $resultMass;
+    }
+
     public function CheckProject($conf){
         $login = $_SESSION['login'];
 
