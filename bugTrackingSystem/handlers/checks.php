@@ -29,6 +29,18 @@ class checks {
         return $resultMass;
     }
 
+    public function SearchUsers($conf){
+        $project = $_SESSION['currentProject'];
+
+        $db = new addRowClass();
+        $db->dbConnect($conf);
+        $script = "SELECT users FROM $conf->projectsTableName WHERE project_name='$project'";
+        $result = mysql_fetch_assoc(mysql_query($script));
+
+        $usersMass = preg_split("/ /", $result['users']);
+        return $usersMass;
+    }
+
     public function CheckProject($conf){
         $login = $_SESSION['login'];
 

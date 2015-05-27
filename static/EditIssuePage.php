@@ -1,5 +1,15 @@
 <?php
+include '../bugTrackingSystem/handlers/checks.php';
+include '../configurations/roboBugConfig.php';
+
     session_start();
+    $checks = new checks();
+    if(!$checks->CheckLogin())
+        exit;
+
+    $config = new roboBugConfig();
+    $projects = $checks->CheckProject($config);
+    $users = $checks->SearchUsers($config);
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,14 +32,19 @@
             <div class="dropdownRatingWrapper">
                 <label class="tableFiltersDropdown" for="projectName">
                     <a id="projectName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating4ID')" onblur="closingClickNew()">
-                        projectName&nbsp;&#9661;
+                        <?php
+                        echo $_SESSION['currentProject'].'&nbsp;&#9661;';
+                        ?>
                     </a>
                 </label>
                 <div id="dropdownRating4ID" class="dropdownRatingULdisplayNone">
                     <ul>
-                        <li><a href="#" class="simpleGrayText">project2</a></li>
-                        <li><a href="#" class="simpleGrayText">project3</a></li>
-                        <li><a href="EditProjectPage.html" class="simpleGrayText">Добавить</a></li>
+                        <?php
+                        for($i=0; $i< count($projects);$i=$i+1){
+                            echo('<li><a href="#" class="simpleGrayText">'.$projects[$i].'</a></li>');
+                        }
+                        ?>
+                        <li><a href="EditProjectPage.php" class="simpleGrayText">Добавить</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,14 +56,14 @@
             <div class="dropdownRatingWrapper">
                 <label class="tableFiltersDropdown" for="userName">
                     <a id="userName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating3ID')" onblur="closingClickNew()">
-                        userName&nbsp;&#9661;
+                        <?php
+                        echo $_SESSION['login'] .'&nbsp;&#9661;';
+                        ?>
                     </a>
                 </label>
                 <div id="dropdownRating3ID" class="dropdownRatingULdisplayNone">
                     <ul>
-                        <li><a href="#" class="simpleGrayText">user2</a></li>
-                        <li><a href="#" class="simpleGrayText">user3</a></li>
-                        <li><a href="LoginAndRegistrationPage.html" class="simpleGrayText">Выйти</a></li>
+                        <li><a href="LoginAndRegistrationPage.php" class="simpleGrayText">Выйти</a></li>
                     </ul>
                 </div>
             </div>
@@ -85,7 +100,11 @@
                     <table>
                         <tr>
                             <td class="cellName simpleGrayText">Кем создан:</td>
-                            <td class="property simpleGrayText">authorName</td>
+                            <td class="property simpleGrayText">
+                                <?php
+                                    echo $_SESSION['login'];
+                                ?>
+                            </td>
                         </tr>
 
                         <tr>
@@ -100,9 +119,11 @@
                                     </label>
                                     <div id="dropdownRating6ID" class="dropdownRatingULdisplayNone">
                                         <ul>
-                                            <li><a href="#" class="simpleGrayText" onclick="choose('projectsUsersList','user2','dropdownRating6ID','userName')">user2</a></li>
-                                            <li><a href="#" class="simpleGrayText" onclick="choose('projectsUsersList','user3','dropdownRating6ID','userName')">user3</a></li>
-                                            <li><a href="#" class="simpleGrayText" onclick="choose('projectsUsersList','user4','dropdownRating6ID','userName')">user4</a></li>
+                                            <?php
+                                                foreach($users as $user){
+                                                    echo '<li><a href="#" class="simpleGrayText" onclick="choose(\'projectsUsersList\',\''.$user.'\',\'dropdownRating6ID\',\'userName\')">'.$user.'</a></li>';
+                                                }
+                                            ?>
                                         </ul>
                                     </div>
                                 </div>
