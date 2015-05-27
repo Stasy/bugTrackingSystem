@@ -11,4 +11,6 @@
 
         $addRow = new addRowClass();
         $addRow->addRow($config, $addRowScript);
+
+        header('Location: ../../Static/MainPage.php');
 ?>
