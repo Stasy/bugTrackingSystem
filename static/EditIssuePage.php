@@ -10,6 +10,29 @@ include '../configurations/roboBugConfig.php';
     $config = new roboBugConfig();
     $projects = $checks->CheckProject($config);
     $users = $checks->SearchUsers($config);
+
+    //определяем параметры бага
+    if(!empty($_GET['currentBugId'])){
+        $bug_id = $_GET['currentBugId'];
+        $script= "SELECT * FROM $config->issuesTableName WHERE bug_id='$bug_id'";
+        $bug = mysql_fetch_array(mysql_query($script));
+
+        $bug_caption=$bug['caption'];
+        $bug_content=$bug['content'];
+        $bug_comment=$bug['comment'];
+        $bug_currentUser=$bug['currentUser'];
+        $bug_priority=$bug['priority'];
+        $bug_status=$bug['status'];
+        $bug_author=$bug['author'];
+    } else{
+        $bug_caption="";
+        $bug_content="";
+        $bug_comment="";
+        $bug_currentUser="не выбран";
+        $bug_priority="не выбран";
+        $bug_status="не выбран";
+        $bug_author=$_SESSION['login'];
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,19 +106,31 @@ include '../configurations/roboBugConfig.php';
     </div>
 
     <div class="editPageWrapper">
-        <form action="../bugTrackingSystem/handlers/createIssue.php" method="post">
+
+        <?php
+            if(!empty($_GET['currentBugId'])){
+                $bugId =$_GET['currentBugId'];
+                echo '<form action="../bugTrackingSystem/handlers/createIssue.php?currentBugId='.$bugId.'" method="post">';
+            }else
+                echo '<form action="../bugTrackingSystem/handlers/createIssue.php" method="post">'
+        ?>
 
             <?php
                 echo '<input type="hidden" value="'. $_SESSION['currentProject'].'" name="projectName">';
-                echo '<input type="hidden" value="'. $_SESSION['login'].'" name="authorName">';
+                echo '<input type="hidden" value="'. $bug_author.'" name="authorName">';
+                echo '<input type="hidden" value="'. $bug_status.'" name="status">';
+                echo '<input type="hidden" value="'. $bug_priority.'" name="priority">';
+                echo '<input type="hidden" value="'. $bug_currentUser.'" name="userName">';
             ?>
-            <input type="hidden" value="default" name="status">
-            <input type="hidden" value="default" name="priority">
-            <input type="hidden" value="default" name="userName">
 
-            <input type="text" id="issueCaption" name="caption" placeholder="Заголовок бага: " class="simpleBlackText greenInput">
+            <?php
+                echo '<input type="text" id="issueCaption" name="caption" placeholder="Заголовок бага: " class="simpleBlackText greenInput" value="'.$bug_caption.'">';
+            ?>
+
             <div class="issueInformationWrapper">
-                <textarea name="content" id="issueBody" placeholder="Введите текст бага" class="simpleBlackText grayTextBox"></textarea>
+                <?php
+                    echo '<textarea name="content" id="issueBody" placeholder="Введите текст бага" class="simpleBlackText grayTextBox">'.$bug_content.'</textarea>';
+                ?>
                 <div class="issuePropertiesWrapper">
                     <table>
                         <tr>
@@ -114,7 +149,9 @@ include '../configurations/roboBugConfig.php';
                                 <div class="dropdownRatingWrapper">
                                     <label class="tableFiltersDropdown" for="projectsUsersList">
                                         <a id="projectsUsersList" class="rankFilter simpleGrayText " onclick="changerNew('dropdownRating6ID')" onblur="closingClickNew()">
-                                            выберите&nbsp;&#9661;
+                                            <?php
+                                                echo $bug_currentUser.'&nbsp;&#9661;';
+                                            ?>
                                         </a>
                                     </label>
                                     <div id="dropdownRating6ID" class="dropdownRatingULdisplayNone">
@@ -137,7 +174,9 @@ include '../configurations/roboBugConfig.php';
                                 <div class="dropdownRatingWrapper">
                                     <label class="tableFiltersDropdown" for="priorityPropertyList">
                                         <a id="priorityPropertyList" class="rankFilter simpleGrayText " onclick="changerNew('dropdownRating2ID')" onblur="closingClickNew()">
-                                            выберите&nbsp;&#9661;
+                                            <?php
+                                            echo $bug_priority.'&nbsp;&#9661;';
+                                            ?>
                                         </a>
                                     </label>
                                     <div id="dropdownRating2ID" class="dropdownRatingULdisplayNone">
@@ -158,7 +197,9 @@ include '../configurations/roboBugConfig.php';
                                 <div class="dropdownRatingWrapper">
                                     <label class="tableFiltersDropdown" for="statusPropertyList">
                                         <a id="statusPropertyList" class="rankFilter simpleGrayText" href="#" onclick="changerNew('dropdownRating1ID')" onblur="closingClickNew()">
-                                            выберите&nbsp;&#9661;
+                                            <?php
+                                            echo $bug_status.'&nbsp;&#9661;';
+                                            ?>
                                         </a>
                                     </label>
                                     <div id="dropdownRating1ID" class="dropdownRatingULdisplayNone">
@@ -176,7 +217,9 @@ include '../configurations/roboBugConfig.php';
                 </div>
 
                 <div class="commentAndSaveWrapper">
-                    <textarea name="comment" type="text" id="issueComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox"></textarea>
+                    <?php
+                        echo '<textarea name="comment" type="text" id="issueComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox">'.$bug_comment.'</textarea>';
+                    ?>
                     <input type="submit" id="SaveButton" class="greenButton simpleWhiteText" value="Сохранить">
                 </div>
             </div>

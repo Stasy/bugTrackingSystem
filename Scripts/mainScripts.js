@@ -13,3 +13,7 @@ function GoToLoginAndRegistrationPage(){
 function GoToMainPage(){
     window.location.pathname = "/bugTrackingSystem/Static/MainPage.php";
 }
+
+function EnterIssue(bugId){
+    window.location = "/bugTrackingSystem/Static/EditIssuePage.php?currentBugId="+bugId;
+}

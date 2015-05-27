@@ -97,8 +97,7 @@
                 $bugs = $checks->SearchBugs($config);
 
                 for($i=0; $i<count($bugs); $i=$i+1) {
-
-                    echo '<tr class="issueItem">
+                            echo '<tr class="issueItem" onclick="EnterIssue(\''.$bugs[$i]['bug_id'].'\')">
                             <td class="issueNumber">' . $bugs[$i]['bug_id'] . '</td>
                             <td class="issueCaption">' . $bugs[$i]['caption'] . '</td>
                             <td class="cellName simpleGrayText">status:</td>

@@ -4,6 +4,11 @@
 
 class checks {
 
+    public function EnterBug($bugId){
+        $_SESSION['currentBugId']=$bugId;
+        header('Location: EditIssuePage.php');
+    }
+
     public function CheckLogin(){
         if($_SESSION['login']==""){
             header('Location: ../Static/LoginAndRegistrationPage.php');
