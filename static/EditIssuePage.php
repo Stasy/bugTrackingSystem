@@ -87,10 +87,10 @@ include '../configurations/roboBugConfig.php';
 
             <?php
                 echo '<input type="hidden" value="'. $_SESSION['currentProject'].'" name="projectName">';
+                echo '<input type="hidden" value="'. $_SESSION['login'].'" name="authorName">';
             ?>
             <input type="hidden" value="default" name="status">
             <input type="hidden" value="default" name="priority">
-            <input type="hidden" value="default" name="authorName">
             <input type="hidden" value="default" name="userName">
 
             <input type="text" id="issueCaption" name="caption" placeholder="Заголовок бага: " class="simpleBlackText greenInput">
