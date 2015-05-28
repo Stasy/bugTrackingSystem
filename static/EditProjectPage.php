@@ -1,3 +1,31 @@
+<?php
+include '../bugTrackingSystem/handlers/checks.php';
+include '../configurations/roboBugConfig.php';
+
+session_start();
+$checks = new checks();
+if(!$checks->CheckLogin())
+    exit;
+
+$config = new roboBugConfig();
+$projects = $checks->CheckProject($config);
+
+//Определяем параметры проекта
+if(!empty($_GET['editProject'])){
+    $projName = $_GET['editProject'];
+    $script= "SELECT * FROM $config->projectsTableName WHERE project_name='$projName'";
+    $proj = mysql_fetch_array(mysql_query($script));
+
+    $projectName=$proj['project_name'];
+    $users=$proj['users'];
+    $comment=$proj['comment'];
+} else{
+    $projectName="";
+    $users="";
+    $comment="";
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -19,32 +47,40 @@
             <div class="dropdownRatingWrapper">
                 <label class="tableFiltersDropdown" for="projectName">
                     <a id="projectName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating4ID')" onblur="closingClickNew()">
-                        projectName&nbsp;&#9661;
+                        <?php
+                        echo $_SESSION['currentProject'].'&nbsp;&#9661;';
+                        ?>
                     </a>
                 </label>
                 <div id="dropdownRating4ID" class="dropdownRatingULdisplayNone">
                     <ul>
-                        <li><a href="#" class="simpleGrayText">project2</a></li>
-                        <li><a href="#" class="simpleGrayText">project3</a></li>
-                        <li><a href="EditProjectPage.html" class="simpleGrayText">Добавить</a></li>
+                        <?php
+                        for($i=0; $i< count($projects);$i=$i+1){
+                            echo('<li><a href="#" class="simpleGrayText">'.$projects[$i].'</a></li>');
+                        }
+                        ?>
+                        <li><a href="EditProjectPage.php" class="simpleGrayText">Добавить</a></li>
                     </ul>
                 </div>
             </div>
 
-            <a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.html">Редактировать</a>
+            <?php
+            echo '<a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.php?editProject='.$_SESSION['currentProject'].'">Редактировать</a>';
+            ?>
+
         </div>
         <div class="globalHeaderRight">
 
             <div class="dropdownRatingWrapper">
                 <label class="tableFiltersDropdown" for="userName">
                     <a id="userName" class="simpleBlackText simpleDropDown" href="#" onclick="changerNew('dropdownRating3ID')" onblur="closingClickNew()">
-                        userName&nbsp;&#9661;
+                        <?php
+                        echo $_SESSION['login'] .'&nbsp;&#9661;';
+                        ?>
                     </a>
                 </label>
                 <div id="dropdownRating3ID" class="dropdownRatingULdisplayNone">
                     <ul>
-                        <li><a href="#" class="simpleGrayText">user2</a></li>
-                        <li><a href="#" class="simpleGrayText">user3</a></li>
                         <li><a href="LoginAndRegistrationPage.php" class="simpleGrayText">Выйти</a></li>
                     </ul>
                 </div>
@@ -65,15 +101,28 @@
     </div>
 
     <div class="editPageWrapper">
-        <form action="../bugTrackingSystem/handlers/createProject.php" method="post">
-            <input type="text" name="project_name" id="projectCaption" placeholder="Имя проекта: " class="simpleBlackText greenInput">
+            <?php
+                if(!empty($_GET['editProject'])){
+                    $name = $_GET['editProject'];
+                    echo '<form action="../bugTrackingSystem/handlers/createProject.php?editProject='.$name.'" method="post">';
+                }else{
+                    echo '<form action="../bugTrackingSystem/handlers/createProject.php" method="post">';
+                }
+                echo '<input type="text" name="project_name" id="projectCaption" placeholder="Имя проекта: " class="simpleBlackText greenInput" value="'.$projectName.'">';
+            ?>
+
             <div class="projectInformationWrapper">
                 <p class="hintText">Введите имена пользователей, которые имеют право
                 доступа для работы в данном проекте, через пробел в окно ниже. Например: user1 user2</p>
-                <textarea name="users" id="projectBody" class="simpleBlackText grayTextBox"></textarea>
+                <?php
+                    echo '<textarea name="users" id="projectBody" class="simpleBlackText grayTextBox">'.$users.'</textarea>';
+                ?>
 
                 <div class="commentAndSaveWrapper">
-                    <textarea name="comment" type="text" id="projectComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox"></textarea>
+                    <?php
+                        echo '<textarea name="comment" type="text" id="projectComment" placeholder="Комментарий: " class="simpleBlackText grayTextBox">'.$comment.'</textarea>';
+                    ?>
+
                     <input type="submit" id="SaveButton" class="greenButton simpleWhiteText" value="Сохранить">
                 </div>
             </div>

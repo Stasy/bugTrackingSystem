@@ -72,7 +72,7 @@ include '../configurations/roboBugConfig.php';
                 </div>
             </div>
 
-            <a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.html">Редактировать</a>
+            <a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.php?editProject=true">Редактировать</a>
         </div>
         <div class="globalHeaderRight">
 

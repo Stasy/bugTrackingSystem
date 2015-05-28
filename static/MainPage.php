@@ -48,7 +48,10 @@
                 </div>
             </div>
 
-            <a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.html">Редактировать</a>
+            <?php
+                echo '<a id="editProjectLink" class="simpleBlackText" href="EditProjectPage.php?editProject='.$_SESSION['currentProject'].'">Редактировать</a>';
+            ?>
+
         </div>
         <div class="globalHeaderRight">
 
